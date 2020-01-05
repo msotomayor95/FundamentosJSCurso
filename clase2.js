@@ -9,3 +9,5 @@ var cantidadDeLetrasDelNombre = nombre.length
 var nombreCompleto = `${nombre} ${apellido.toUpperCase()}`
 
 var str = nombre.substr(1, 2)
+
+str = nombre.substr(-1)
