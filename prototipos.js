@@ -15,7 +15,8 @@ Persona.prototype.amITall = function () {
     console.log(`I'm ${answer}`)
 }
 
-//no se pueden usar arrow functions cuando se quiere hacer una funcion de un prototipo.
+// Las arrow function heredan this de su scope padre, es decir, que si quisieramos usarlo en el las funciones de 
+// prototipo, this es Window.
 
 // Creamos un objeto dado el prototipo Persona
 var kyo = new Persona('Kyo', 'Asakura', 1.81)
