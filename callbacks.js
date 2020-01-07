@@ -17,26 +17,34 @@ function onError(id) {
     console.log (`Error while getting the character number ${id}`)
 }
 
-getCharacter(1)
-    .then((character) => {
-        console.log(`The character number 1 is ${character.name}`)
-        return getCharacter(2)
-    })
-    .then((character) => {
-        console.log(`The character number 2 is ${character.name}`)
-        return getCharacter(3)
-    })
-    .then((character) => {
-        console.log(`The character number 3 is ${character.name}`)
-        return getCharacter(4)
-    })
-    .then((character) => {
-        console.log(`The character number 4 is ${character.name}`)
-        return getCharacter(5)
-    }).then((character) => {
-        console.log(`The character numer 5 is ${character.name}`)
-    })
+var ids = [1, 2, 3, 4, 5, 6, 7]
+var promises = ids.map(id => getCharacter(id))
+
+Promise
+    .all(promises)
+    .then(character => console.log(character))
     .catch(onError)
+
+// getCharacter(1)
+//     .then((character) => {
+//         console.log(`The character number 1 is ${character.name}`)
+//         return getCharacter(2)
+//     })
+//     .then((character) => {
+//         console.log(`The character number 2 is ${character.name}`)
+//         return getCharacter(3)
+//     })
+//     .then((character) => {
+//         console.log(`The character number 3 is ${character.name}`)
+//         return getCharacter(4)
+//     })
+//     .then((character) => {
+//         console.log(`The character number 4 is ${character.name}`)
+//         return getCharacter(5)
+//     }).then((character) => {
+//         console.log(`The character numer 5 is ${character.name}`)
+//     })
+//     .catch(onError)
 
 // getCharacter(1, (person) => {
 //     console.log(`Hello I'm ${person.name}`)
